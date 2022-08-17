@@ -3,6 +3,7 @@ package br.sapiens;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -48,6 +49,18 @@ public class ListaTest {
             new Pessoa("Michael", "Brown", "michael.brown@example.com")
     );
 
+    @FXML
+    protected void onHelloButtonClick() {
+        System.out.println("cu");
+        data.add(new Pessoa("Jacob", "Smith", "jacob.smith@example.com"));
+    }
+
+    @FXML
+    public void onButtonClick(ActionEvent actionEvent) {
+        for (Pessoa pessoa: data){
+            System.out.println(pessoa);
+        }
+    }
 
     public class Pessoa {
         private final SimpleStringProperty nome;
@@ -70,6 +83,11 @@ public class ListaTest {
 
         public String getEmail() {
             return email.get();
+        }
+
+        @Override
+        public String toString() {
+            return getNome() + " " + getSobreNome();
         }
     }
 }
