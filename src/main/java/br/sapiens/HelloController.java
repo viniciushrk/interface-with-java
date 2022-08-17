@@ -7,6 +7,11 @@ public class HelloController {
     @FXML
     private Label welcomeText;
 
+    public HelloController(){
+        /*System.out.println(welcomeText);
+        welcomeText.setText("Buceta");*/
+    }
+
     @FXML
     protected void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");
